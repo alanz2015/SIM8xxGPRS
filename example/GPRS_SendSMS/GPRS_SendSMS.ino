@@ -13,13 +13,13 @@ note: the following pins has been used and should not be used for other purposes
 created on 2013/12/5, version: 0.1
 by lawliet.zou(lawliet.zou@gmail.com)
 */
-#include <gprs.h>
-#include <SoftwareSerial.h>
 
-GPRS gprs;
+#include "gprs.h"
+
+GPRS gprs(9600);
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   while(!Serial);
   Serial.println("GPRS - Send SMS Test ...");
   gprs.preInit();
@@ -29,7 +29,7 @@ void setup() {
       Serial.print("init error\r\n");
   }  
   Serial.println("Init success, start to send SMS message...");
-  gprs.sendSMS("130****3364","hello,world"); //define phone number and text
+  gprs.sendSMS("+8613509660972","Hello,SIM868!"); //define phone number and text
 }
 
 void loop() {

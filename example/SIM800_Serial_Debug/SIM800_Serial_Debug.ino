@@ -14,12 +14,11 @@ by lawliet.zou(lawliet.zou@gmail.com)
 */
 
 #include "gprs.h"
-#include <SoftwareSerial.h>
 
 GPRS gprs(9600);//BaudRate
 
 void setup(){
-  Serial.begin(9600);
+  Serial.begin(115200);
   while(!Serial);
   Serial.println("Serial debug begin...");
   gprs.preInit();//Power on SIM800

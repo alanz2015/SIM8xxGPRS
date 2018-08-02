@@ -2,16 +2,15 @@
 Sketch: GPRS HTTP Test
 
 */
-#include <gprs.h>
-#include <SoftwareSerial.h>
+#include "gprs.h"
 
 char http_cmd[] = "GET /media/uploads/mbed_official/hello.txt HTTP/1.0\r\n\r\n";
 char buffer[512];
 
-GPRS gprs;
+GPRS gprs(9600);
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   while(!Serial);
   Serial.println("GPRS - HTTP Connection Test...");  
   gprs.preInit();
@@ -19,7 +18,7 @@ void setup() {
      delay(1000);
      Serial.println("init error");
   }  
-  while(!gprs.join("cmnet")) {  //change "cmnet" to your own APN
+  while(!gprs.join("3gnet")) {  //change "cmnet" to your own APN
       Serial.println("gprs join network error");
       delay(2000);
   }

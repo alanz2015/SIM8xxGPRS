@@ -14,13 +14,12 @@ created on 2013/12/5, version: 0.1
 by lawliet.zou(lawliet.zou@gmail.com)
 */
 
-#include <gprs.h>
-#include <SoftwareSerial.h>
+#include "gprs.h"
 
-GPRS gprs;
+GPRS gprs(9600);
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   while(!Serial);
   Serial.println("GPRS - Call up Test...");
   gprs.preInit();//power on SIM800
@@ -30,7 +29,7 @@ void setup() {
       Serial.print("init error\r\n");
   }  
   Serial.println("Init success, start to call...");
-  gprs.callUp("150****9566");
+  gprs.callUp("13509660972");
 }
 
 void loop() {

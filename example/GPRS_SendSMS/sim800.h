@@ -32,7 +32,6 @@
 #define __SIM800_H__
 
 #include "Arduino.h"
-#include <SoftwareSerial.h>
 
 #define TRUE                    1
 #define FALSE                   0
@@ -54,6 +53,12 @@
 
 #define DEFAULT_TIMEOUT     5
 
+/*
+ * For my purchased SIM868 module which is configured in hardware UART, NOT software serial.
+ */
+
+#define serialSIM800 Serial3
+
 /** SIM800 class.
  *  Used for SIM800 communication. attention that SIM800 module communicate with MCU in serial protocol
  */
@@ -66,7 +71,7 @@ public:
      *  @param rx   uart receive pin to communicate with SIM800
      *  @param baudRate baud rate of uart communication
      */
-    SIM800(int baudRate):serialSIM800(SIM800_TX_PIN,SIM800_RX_PIN){
+    SIM800(int baudRate) {
         powerPin = SIM800_POWER_PIN;
         #if 0
         pinMode(powerPin,OUTPUT);
@@ -137,7 +142,9 @@ public:
     void serialDebug(void);
     
     int powerPin;
-    SoftwareSerial serialSIM800;
+    /*
+     * SoftwareSerial serialSIM800;
+     */
 
 private:
     
