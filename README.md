@@ -1,3 +1,5 @@
+Folked from Seeeduino GPRS, do some modification to be compatible to SIM868 GPS/GPRS module.
+
 ## Seeeduino GPRS
 
 ![](https://statics3.seeedstudio.com/seeed/file/2018-01/bazaar669815_seeeduinogprs.jpg)
